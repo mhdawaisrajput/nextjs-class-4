@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {children} <br /><br />
+
+
+        {/* Step 01 >>> Link {Header()} w.r.t import Header from "./header"; */}
+
+        {/* Difference between:
+        
+        Header() >>> Ye Html k syntyx ko execute krta hai like: Header().
+        {Header()} >>> Ye jsx  me Header k andar k function ko return krta hai
+        
+        */}
+
+        {/* Steo 02 >>> Link Header Like : <Header />, w.r.t import Header from "./header";*/}
+        <Header />
+        
+          {/* Error >>> <header /> , bcz jsx it case sensitive */}
+
       </body>
     </html>
   );
